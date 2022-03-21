@@ -2,6 +2,8 @@ import numpy as np
 import random as rand
 import matplotlib.pyplot as plt
 
+
+
 def main():
     #Variables
     n = 40
@@ -38,7 +40,9 @@ def main():
     ax = fig.add_subplot(111)
     ax.grid(True)
     
-    while(generation < 1000):
+    while(generation < 10):
+    
+
         for i in range(n):
             #Obtener Pbest
             if(fitness(a[0][i], a[1][i]) < fitness(Pbest[0][i], Pbest[1][i])):
@@ -51,21 +55,21 @@ def main():
             #Calcular Velocidad
             Vector_Velocidad(n, a, Pbest, Gbest, v)
         generation = generation + 1
-        print 'Generacion: ' + str(generation) + ' - - - Gbest: ' +str(Gbest)
+        print ("Generacion: " + str(generation) + " - - - Gbest: " +str(Gbest))
 
-        line1 = ax.plot(a[0], a[1], 'r+')
-        line2 = ax.plot(Gbest[0][0], Gbest[0][1], 'g*')
+        line1 = ax.plot(a[0], a[1], "r+")
+        line2 = ax.plot(Gbest[0][0], Gbest[0][1], "g*")
 
         ax.set_xlim(-10, 10)
         ax.set_ylim(-10, 10)
         
         fig.canvas.draw()
-
+        teste = input("pressione p continuar...:")
         ax.clear()
         ax.grid(True)
 
-    print 'Gbest: '
-    print Gbest
+    print ('Gbest: ')
+    print (Gbest)
 
 def Vector_Velocidad(n, a, Pbest, Gbest, v):
     for i in range(n):
